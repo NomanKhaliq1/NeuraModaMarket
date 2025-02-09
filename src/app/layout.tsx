@@ -1,26 +1,10 @@
 // layout.tsx
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./globals.css";
 
 import Footer from "@/components/Footer";
 import HeaderWrapper from "@/components/HeaderWrapper"; // Import the new HeaderWrapper
-
-// Montserrat Font (100–900)
-const montserrat = localFont({
-  src: [
-    { path: "./fonts/Montserrat-Thin.ttf", weight: "100" },
-    { path: "./fonts/Montserrat-Light.ttf", weight: "300" },
-    { path: "./fonts/Montserrat-Regular.ttf", weight: "400" },
-    { path: "./fonts/Montserrat-Medium.ttf", weight: "500" },
-    { path: "./fonts/Montserrat-SemiBold.ttf", weight: "600" },
-    { path: "./fonts/Montserrat-Bold.ttf", weight: "700" },
-    { path: "./fonts/Montserrat-ExtraBold.ttf", weight: "800" },
-    { path: "./fonts/Montserrat-Black.ttf", weight: "900" },
-  ],
-  variable: "--font-montserrat", // This sets up the CSS variable
-});
 
 export const metadata: Metadata = {
   title: "Fashionaura",
@@ -33,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${montserrat.variable}`}>
+    <html lang="en">
       <body className="antialiased">
         <HeaderWrapper /> {/* Use HeaderWrapper here */}
         {children}

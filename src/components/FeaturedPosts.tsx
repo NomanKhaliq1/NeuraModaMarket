@@ -6,10 +6,10 @@ const FeaturedPosts = () => {
         {
             image: "/FeaturedPost/post1.jpg",
             title: "Loudest à la Madison #1 (L'integral)",
-            category: "Google",
+            category: "Google", // ✅ Keep category
             date: "22 April 2021",
             comments: "10",
-            tags: ["Google", "Trending", "New"], // Google will get blue color
+            tags: ["Google", "Trending", "New"],
             link: "#",
         },
         {
@@ -18,7 +18,7 @@ const FeaturedPosts = () => {
             category: "Trending",
             date: "22 April 2021",
             comments: "5",
-            tags: ["Trending", "New"], // No Google tag here, so tags remain black
+            tags: ["Trending", "New"],
             link: "#",
         },
         {
@@ -27,7 +27,7 @@ const FeaturedPosts = () => {
             category: "New",
             date: "22 April 2021",
             comments: "8",
-            tags: ["Google", "New"], // Google tag gets blue color
+            tags: ["Google", "New"],
             link: "#",
         },
     ];
@@ -51,7 +51,7 @@ const FeaturedPosts = () => {
                                 key={index}
                                 image={post.image}
                                 title={post.title}
-                                category={post.category}
+                                category={post.category} // ✅ Now it works
                                 date={post.date}
                                 comments={post.comments}
                                 tags={post.tags}

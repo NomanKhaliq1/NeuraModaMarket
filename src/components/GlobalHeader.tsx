@@ -1,12 +1,11 @@
-import React from 'react';
+import React from "react";
+import Link from "next/link";
 
 const GlobalHeader = () => {
   return (
     <header>
-
       <div className="bg-[#252B42] text-white text-sm py-4">
         <div className="container mx-auto flex justify-between items-center px-8 py-2">
-
           <div className="flex items-center space-x-8 font-bold">
             <span>
               <i className="fas fa-phone-alt"></i> (225) 555-0118
@@ -38,60 +37,60 @@ const GlobalHeader = () => {
         </div>
       </div>
 
-
       <div className="bg-white text-black">
         <div className="container mx-auto flex justify-between items-center px-8 py-4">
+          <div className="text-2xl font-bold">Fashionaura</div>
 
-          <div className="text-2xl font-bold">Bandage</div>
-
+          {/* Navigation Menu */}
           <nav>
             <ul className="flex space-x-8 font-bold text-[#737373]">
               <li>
-                <a href="/" className="hover:text-black">
+                <Link href="/" className="hover:text-black">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="relative group">
-                <a href="#" className="hover:text-black">
+                <Link href="/shop" className="hover:text-black">
                   Shop
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-black">
+                <Link href="/about" className="hover:text-black">
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-black">
+                <Link href="/blog" className="hover:text-black">
                   Blog
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-black">
+                <Link href="/contact" className="hover:text-black">
                   Contact
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="hover:text-black">
+                <Link href="/pages" className="hover:text-black">
                   Pages
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
 
+          {/* Icons Section */}
           <div className="flex items-center space-x-8">
-            <a href="#" className="text-[#23A6F0] hover:underline font-bold">
+            <Link href="/login" className="text-[#23A6F0] hover:underline font-bold">
               <i className="fa-regular fa-user"></i> Login / Register
-            </a>
-            <a href="#" aria-label="Search" className="text-[#23A6F0]">
+            </Link>
+            <Link href="/search" aria-label="Search" className="text-[#23A6F0]">
               <i className="fas fa-search"></i>
-            </a>
-            <a href="#" aria-label="Cart" className="text-[#23A6F0]">
+            </Link>
+            <Link href="/cart" aria-label="Cart" className="text-[#23A6F0]">
               <i className="fa fa-shopping-cart"></i> <span>1</span>
-            </a>
-            <a href="#" aria-label="Wishlist" className="text-[#23A6F0]">
+            </Link>
+            <Link href="/wishlist" aria-label="Wishlist" className="text-[#23A6F0]">
               <i className="fa-regular fa-heart"></i> <span>1</span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

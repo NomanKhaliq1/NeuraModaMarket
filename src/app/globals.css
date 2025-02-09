@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -17,7 +19,7 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .custom-container {
@@ -27,45 +29,44 @@ body {
   overflow: hidden;
 }
 
-
 /* Custom font-weight classes */
 .font-thin {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 100;
 }
 
 .font-light {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 300;
 }
 
 .font-regular {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
 
 .font-medium {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 500;
 }
 
 .font-semibold {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 600;
 }
 
 .font-bold {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
 .font-extrabold {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 800;
 }
 
 .font-black {
-  font-family: var(--font-montserrat), sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 900;
 }
 

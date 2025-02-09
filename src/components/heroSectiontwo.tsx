@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const HeroSectiontwo = () => {
   return (
@@ -7,6 +8,7 @@ const HeroSectiontwo = () => {
         
         <div className="custom-container flex flex-col md:flex-row items-center justify-between space-y-8 md:space-y-0">
           
+          {/* Left Section - Text Content */}
           <div className="w-full md:w-[45%] space-y-[35px]">
             <h2 className="text-white text-[16px] font-bold uppercase">
               SUMMER 2024
@@ -20,6 +22,7 @@ const HeroSectiontwo = () => {
               how objects will act, We know
             </p>
 
+            {/* Price & Add to Cart Button */}
             <div className="flex justify-between items-center w-[60%]">
               <span className="font-bold text-[24px] tracking-[0.1px]">$16.48</span>
 
@@ -32,11 +35,15 @@ const HeroSectiontwo = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-[55%]">
-            <img
+          {/* Right Section - Image */}
+          <div className="w-full md:w-[55%] flex justify-end">
+            <Image
               src="/hero-sec-two-image.png"
               alt="Shop Hero"
-              className="w-[450px] h-auto ml-auto -mb-[170px]"
+              width={450}
+              height={500}
+              layout="intrinsic"
+              className="-mb-[170px]"
             />
           </div>
 

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 interface CategoryCardProps {
   image: string;
@@ -10,9 +11,11 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ image, title, items }) => {
   return (
     <div className="relative group">
       {/* Background Image */}
-      <img
+      <Image
         src={image}
         alt={title}
+        width={300} // Adjust width based on your requirement
+        height={300} // Adjust height based on your requirement
         className="w-full h-[300px] object-cover rounded-lg"
       />
 

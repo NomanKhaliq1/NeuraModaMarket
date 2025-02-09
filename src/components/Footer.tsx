@@ -7,7 +7,7 @@ const Footer = () => {
                 <div className="container">
                     <div className="custom-container">
                         <div className="footersocial-bar flex justify-between">
-                            <h1 className="text-2xl font-bold text-[#252B42]">Bandage</h1>
+                            <h1 className="text-2xl font-bold text-[#252B42]">Fashionaura</h1>
                             <div className="flex items-center space-x-4 text-[#23A6F0]">
                                 <a href="#" aria-label="Facebook">
                                     <i className="fab fa-facebook"></i>
