@@ -1,153 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 210 25% 98%;
+    --foreground: 222.2 47% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47% 10%;
+
+    --primary: 175 66% 39%; /* Teal */
+    --primary-foreground: 210 40% 98%; /* Near-white */
+
+    --secondary: 32 100% 62%; /* Amber highlight */
+    --secondary-foreground: 212 33% 12%;
+
+    --muted: 210 27% 94%;
+    --muted-foreground: 215 15% 42%;
+
+    --accent: 213 92% 50%; /* Vivid blue accent */
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 216 30% 90%;
+    --input: 214 31% 88%;
+    --ring: 175 66% 39%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 162 76% 46%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 162 76% 46%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: "Montserrat", sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Space Grotesk", "Sora", sans-serif;
+    background: radial-gradient(circle at 20% 20%, rgba(34, 211, 238, 0.12), transparent 25%),
+                radial-gradient(circle at 80% 0%, rgba(255, 143, 63, 0.12), transparent 22%),
+                #f6f7f9;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Sora", "Space Grotesk", sans-serif;
+    letter-spacing: -0.02em;
+  }
 }
 
-.custom-container {
-  width: 1125px;
-  margin: 0 auto;
-  height: 100%;
-  overflow: hidden;
-}
-
-/* Custom font-weight classes */
-.font-thin {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 100;
-}
-
-.font-light {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-}
-
-.font-regular {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 400;
-}
-
-.font-medium {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-}
-
-.font-semibold {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-}
-
-.font-bold {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 700;
-}
-
-.font-extrabold {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 800;
-}
-
-.font-black {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 900;
-}
-
+/* Custom Utilities if absolutely necessary, but prefer Tailwind classes */
 .hero-section {
   background-image: url('/hero-sec-bg.png');
-  background-size: 100% 100%;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 700px;
-  width: 100%;
 }
 
-.cstm-btn {
-  background-color: #2DC071;
-  padding: 15px 40px;
-  border-radius: 5px;
-  border: 1px solid #2DC071;
-}
-
-.cstm-btn:hover {
-  background-color: transparent;
-  border: 1px solid #2DC071;
-  color: #2DC071;
-}
-
-.cstm-btn-transparent {
-  background-color: transparent;
-  padding: 15px 40px;
-  border-radius: 5px;
-  border: 1px solid #2DC071;
-  color: #2DC071;
-}
-
-.cstm-btn-transparent:hover {
-  background-color: #2DC071;
-  color: #fff;
-}
-
-.post-btn {
-  align-items: center;
-}
-
-.posttag {
-  padding: 5px 10px;
-  position: absolute;
-  border-radius: 5px;
-  top: 20px;
-  left:20px;
-}
-
-.footer-top, .footer-middle-area, .footerend {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.get-in-touchform input {
-  padding: 20px;
-  outline: none;
-  border: 1px solid #E6E6E6;
-  width: 100%;
-  border-radius: 5px;
-}
-
-.get-in-touchform button {
-  position: absolute;
-  right: 0;
-  height: 100%;
-}
-
-@media (max-width: 767px) {
-  .custom-container {
-    width: 100%;
-    padding: 20px;
-  }
-}
-
-/* Tablet Styles */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .custom-container {
-    width: 100%;
-    padding: 20px;
-  }
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.68));
+  backdrop-filter: blur(10px);
+  box-shadow: 0 15px 40px rgba(20, 29, 56, 0.12);
 }

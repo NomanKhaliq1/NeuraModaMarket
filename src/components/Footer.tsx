@@ -1,100 +1,109 @@
-import React from 'react';
+import React from "react";
+import Link from "next/link";
 
 const Footer = () => {
-    return (
-        <footer className="bg-[#fff]">
-            <div className="footer-top bg-[#FAFAFA] py-8">
-                <div className="container">
-                    <div className="custom-container">
-                        <div className="footersocial-bar flex justify-between">
-                            <h1 className="text-2xl font-bold text-[#252B42]">Fashionaura</h1>
-                            <div className="flex items-center space-x-4 text-[#23A6F0]">
-                                <a href="#" aria-label="Facebook">
-                                    <i className="fab fa-facebook"></i>
-                                </a>
-                                <a href="#" aria-label="Instagram">
-                                    <i className="fab fa-instagram"></i>
-                                </a>
-                                <a href="#" aria-label="Twitter">
-                                    <i className="fab fa-twitter"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <footer className="bg-gradient-to-b from-[#f5f7fb] via-[#eef6f3] to-white border-t border-[#e5edf5]">
+      <div className="container mx-auto px-6 py-12 space-y-10">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-3">
+            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-[#0b7b69] via-[#0fb398] to-[#ff8f3f] flex items-center justify-center shadow-md">
+              <span className="text-white font-bold text-lg">N</span>
             </div>
-            <div className="footer-middle-area py-8">
-                <div className="container">
-                    <div className="custom-container">
-                        <div className="flex flex-wrap justify-between mb-8">
-                            <div className="w-full sm:w-1/2 md:w-1/6 mb-6 space-y-6">
-                                <h3 className="text-[16px] font-bold text-[#252B42]">Company Info</h3>
-                                <ul className="text-[14px] text-[#737373] font-bold space-y-4">
-                                    <li><a href="#" className="hover:text-[#23A6F0]">About Us</a></li>
-                                    <li><a href="#" className="hover:text-[#23A6F0]">Careers</a></li>
-                                    <li><a href="#" className="hover:text-[#23A6F0]">We are hiring</a></li>
-                                    <li><a href="#" className="hover:text-[#23A6F0]">Blog</a></li>
-                                </ul>
-                            </div>
-
-                            <div className="w-full sm:w-1/2 md:w-1/6 mb-6 space-y-6">
-                                <h3 className="text-[16px] font-bold text-[#252B42]">Legal</h3>
-                                <ul className="text-[14px] text-[#737373] font-bold space-y-4">
-                                    <li><a href="#" className="hover:text-[#23A6F0]">About Us</a></li>
-                                    <li><a href="#" className="hover:text-[#23A6F0]">Careers</a></li>
-                                    <li><a href="#" className="hover:text-[#23A6F0]">We are hiring</a></li>
-                                    <li><a href="#" className="hover:text-[#23A6F0]">Blog</a></li>
-                                </ul>
-                            </div>
-
-                            <div className="w-full sm:w-1/2 md:w-1/6 mb-6 space-y-6">
-                                <h3 className="text-[16px] font-bold text-[#252B42]">Features</h3>
-                                <ul className="text-[14px] text-[#737373] font-bold space-y-4">
-                                    <li><a href="#" className="hover:text-[#23A6F0]">Business Marketing</a></li>
-                                    <li><a href="#" className="hover:text-[#23A6F0]">User Analytics</a></li>
-                                    <li><a href="#" className="hover:text-[#23A6F0]">Live Chat</a></li>
-                                    <li><a href="#" className="hover:text-[#23A6F0]">Unlimited Support</a></li>
-                                </ul>
-                            </div>
-
-                            <div className="w-full sm:w-1/2 md:w-1/6 mb-6 space-y-6">
-                                <h3 className="text-[16px] font-bold text-[#252B42]">Resources</h3>
-                                <ul className="text-[14px] text-[#737373] font-bold space-y-4">
-                                    <li><a href="#" className="hover:text-[#23A6F0]">IOS & Android</a></li>
-                                    <li><a href="#" className="hover:text-[#23A6F0]">Watch a Demo</a></li>
-                                    <li><a href="#" className="hover:text-[#23A6F0]">Customers</a></li>
-                                    <li><a href="#" className="hover:text-[#23A6F0]">API</a></li>
-                                </ul>
-                            </div>
-
-                            <div className="w-full sm:w-1/2 md:w-1/4 mb-6 space-y-6">
-                                <h3 className="text-[16px] font-bold text-[#252B42]">Get In Touch</h3>
-                                <div className="flex items-center get-in-touchform relative">
-                                    <input type="email" placeholder="Your Email" className="py-2 px-4 w-full text-[14px] text-[#737373] font-regular bg-[#F9F9F9] border border-[#737373] rounded-l-md" />
-                                    <button className="bg-[#23A6F0] text-white py-2 px-4 rounded-r-md text-sm">
-                                        Subscribe
-                                    </button>
-                                </div>
-                                <p className="text-[12px] font-regular text-[#737373]">Lorem ipsum dolor sit amet</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div className="leading-tight">
+              <p className="text-xs uppercase tracking-[0.2em] text-gray-500 font-semibold">NeuraModa</p>
+              <p className="text-lg font-semibold text-[#0f172a]">Market</p>
             </div>
+          </div>
 
-            <div className="footerend bg-[#FAFAFA]">
-                <div className="container mx-auto px-8">
-                    <div className="custom-container">
-                        <div className="text-[14px] text-[#737373] py-8 tracking-[0.2px] font-bold">
-                            <p>Made with love by Pakistan. All rights reserved.</p>
-                        </div>
-                    </div>
+          <div className="flex items-center gap-4 text-[#0b7b69]">
+            {[
+              { icon: "facebook", href: "#" },
+              { icon: "instagram", href: "#" },
+              { icon: "twitter", href: "#" },
+            ].map((social) => (
+              <a
+                key={social.icon}
+                href={social.href}
+                aria-label={social.icon}
+                className="w-10 h-10 rounded-full bg-white shadow flex items-center justify-center hover:text-[#ff8f3f] transition-colors"
+              >
+                <i className={`fab fa-${social.icon} text-lg`} />
+              </a>
+            ))}
+          </div>
+        </div>
 
-                </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8">
+          <div className="space-y-4">
+            <h3 className="text-base font-bold text-[#0f172a]">Company</h3>
+            <ul className="text-sm text-gray-600 font-medium space-y-3">
+              <li><Link href="/about" className="hover:text-[#0b7b69] transition-colors">About Us</Link></li>
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">Careers</a></li>
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">We are hiring</a></li>
+              <li><Link href="/blog" className="hover:text-[#0b7b69] transition-colors">Blog</Link></li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-base font-bold text-[#0f172a]">Legal</h3>
+            <ul className="text-sm text-gray-600 font-medium space-y-3">
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">Cookies</a></li>
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">Support</a></li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-base font-bold text-[#0f172a]">Features</h3>
+            <ul className="text-sm text-gray-600 font-medium space-y-3">
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">Style Drops</a></li>
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">Curated Edits</a></li>
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">Personal Styling</a></li>
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">Priority Support</a></li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-base font-bold text-[#0f172a]">Resources</h3>
+            <ul className="text-sm text-gray-600 font-medium space-y-3">
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">iOS & Android</a></li>
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">Watch a Demo</a></li>
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">Customers</a></li>
+              <li><a href="#" className="hover:text-[#0b7b69] transition-colors">API</a></li>
+            </ul>
+          </div>
+
+          <div className="space-y-4 lg:col-span-1">
+            <h3 className="text-base font-bold text-[#0f172a]">Stay Updated</h3>
+            <div className="flex relative">
+              <input
+                type="email"
+                placeholder="Your Email"
+                className="py-3 px-4 w-full text-sm text-gray-600 bg-white border border-[#e5edf5] rounded-l-lg focus:outline-none focus:border-[#0b7b69]"
+              />
+              <button className="bg-gradient-to-r from-[#0b7b69] via-[#0fb398] to-[#ff8f3f] text-white py-3 px-4 rounded-r-lg text-sm font-bold transition-colors hover:brightness-110">
+                Subscribe
+              </button>
             </div>
+            <p className="text-xs text-gray-500">No spam. Just drops, edits, and invites.</p>
+          </div>
+        </div>
+      </div>
 
-        </footer>
-    );
+      <div className="bg-white/80 border-t border-[#e5edf5] py-5">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-600">
+          <p>© {new Date().getFullYear()} NeuraModa. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <a href="#" className="hover:text-[#0b7b69] transition-colors">Privacy</a>
+            <a href="#" className="hover:text-[#0b7b69] transition-colors">Terms</a>
+            <a href="#" className="hover:text-[#0b7b69] transition-colors">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;

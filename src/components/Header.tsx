@@ -1,93 +1,103 @@
+'use client';
+
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
-const Header = () => {
+type HeaderProps = {
+  onCartClick?: () => void;
+  cartCount?: number;
+};
+
+const Header = ({ onCartClick, cartCount = 1 }: HeaderProps) => {
   return (
-    <header>
-      <div className="bg-[#252B42] text-white text-sm py-4">
-        <div className="container mx-auto flex justify-between items-center px-8 py-2">
-          <div className="flex items-center space-x-8 font-bold">
-            <span>
-              <i className="fas fa-phone-alt"></i> (225) 555-0118
+    <header className="sticky top-0 z-50">
+      {/* Top bar */}
+      <div className="bg-[#0f172a] text-white text-xs md:text-sm py-3">
+        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6 gap-3">
+          <div className="flex items-center flex-wrap justify-center md:justify-start gap-4 font-semibold">
+            <span className="inline-flex items-center gap-2">
+              <i className="fas fa-phone-alt text-[#0fb398]" />
+              (225) 555-0118
             </span>
-            <span>
-              <i className="fas fa-envelope"></i> michelle.rivera@example.com
+            <span className="hidden sm:inline-flex items-center gap-2">
+              <i className="fas fa-envelope text-[#0fb398]" />
+              michelle.rivera@example.com
             </span>
           </div>
 
-          <div className="text-center flex-1 font-bold">
-            Follow Us and get a chance to win 80% off
+          <div className="text-center font-semibold hidden md:block">
+            Follow us and get a chance to win 80% off
           </div>
 
-          <div className="flex items-center space-x-4">
-            <span className="font-bold">Follow Us:</span>
-            <a href="#" aria-label="Instagram">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="#" aria-label="YouTube">
-              <i className="fab fa-youtube"></i>
-            </a>
-            <a href="#" aria-label="Facebook">
-              <i className="fab fa-facebook"></i>
-            </a>
-            <a href="#" aria-label="Twitter">
-              <i className="fab fa-twitter"></i>
-            </a>
+          <div className="flex items-center gap-3 font-semibold">
+            <span className="hidden md:inline text-[#b9f3e5] uppercase tracking-[0.25em] text-[10px]">Follow</span>
+            <div className="flex items-center gap-3">
+              {["instagram", "youtube", "facebook", "twitter"].map((icon) => (
+                <a key={icon} href="#" aria-label={icon} className="hover:text-[#0fb398] transition-colors">
+                  <i className={`fab fa-${icon}`} />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-white text-black">
-        <div className="container mx-auto flex justify-between items-center px-8 py-4">
-          <div className="text-2xl font-bold">Fashionaura</div>
+      {/* Main nav */}
+      <div className="bg-white/90 backdrop-blur shadow-sm">
+        <div className="container mx-auto flex items-center justify-between px-6 py-4 gap-4">
+          <Link href="/" className="flex items-center gap-3">
+            <div className="relative w-10 h-10 rounded-xl bg-gradient-to-br from-[#0b7b69] via-[#0fb398] to-[#ff8f3f] flex items-center justify-center shadow-md">
+              <span className="text-white font-bold text-lg">N</span>
+            </div>
+            <div className="leading-tight">
+              <p className="text-xs uppercase tracking-[0.2em] text-gray-500 font-semibold">NeuraModa</p>
+              <p className="text-xl font-semibold text-[#0f172a]">Market</p>
+            </div>
+          </Link>
 
-          <nav>
-            <ul className="flex space-x-8 font-bold text-[#737373]">
-              <li>
-                <Link href="/" className="hover:text-black">
-                  Home
-                </Link>
-              </li>
-              <li className="relative group">
-                <Link href="/shop" className="hover:text-black">
-                  Shop
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:text-black">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="hover:text-black">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="hover:text-black">
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link href="/pages" className="hover:text-black">
-                  Pages
-                </Link>
-              </li>
+          <nav className="hidden lg:block">
+            <ul className="flex items-center gap-8 text-sm font-semibold text-gray-600">
+              {[
+                { href: "/", label: "Home" },
+                { href: "/shop", label: "Shop" },
+                { href: "/about", label: "About" },
+                { href: "/blog", label: "Blog" },
+                { href: "/contact", label: "Contact" },
+                { href: "/pages", label: "Pages" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="relative inline-block py-1 transition-colors hover:text-[#0b7b69] after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-gradient-to-r from-[#0b7b69] via-[#0fb398] to-[#ff8f3f] hover:after:w-full after:transition-all after:duration-300"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </nav>
 
-          <div className="flex items-center space-x-8">
-            <Link href="/login" className="text-[#23A6F0] hover:underline font-bold">
-              <i className="fa-regular fa-user"></i> Login / Register
+          <div className="flex items-center gap-5 text-[#0b7b69] font-semibold">
+            <Link href="/login" className="hidden md:flex items-center gap-2 hover:text-[#0f172a] transition-colors">
+              <i className="fa-regular fa-user text-gray-500" /> <span>Login / Register</span>
             </Link>
-            <Link href="/search" aria-label="Search" className="text-[#23A6F0]">
-              <i className="fas fa-search"></i>
+            <Link href="/search" aria-label="Search" className="hover:text-[#0f172a] transition-colors">
+              <i className="fas fa-search" />
             </Link>
-            <Link href="/cart" aria-label="Cart" className="text-[#23A6F0]">
-              <i className="fa fa-shopping-cart"></i> <span>1</span>
-            </Link>
-            <Link href="/wishlist" aria-label="Wishlist" className="text-[#23A6F0]">
-              <i className="fa-regular fa-heart"></i> <span>1</span>
+            <button
+              type="button"
+              aria-label="Cart"
+              onClick={onCartClick}
+              className="relative hover:text-[#0f172a] transition-colors focus:outline-none"
+            >
+              <i className="fa fa-shopping-cart text-lg" />
+              <span className="absolute -top-2 -right-2 bg-[#ff8f3f] text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow">
+                {cartCount}
+              </span>
+            </button>
+            <Link href="/wishlist" aria-label="Wishlist" className="hidden md:flex items-center hover:text-[#0f172a] transition-colors">
+              <i className="fa-regular fa-heart text-lg" />
             </Link>
           </div>
         </div>

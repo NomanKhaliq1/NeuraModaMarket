@@ -1,30 +1,34 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface CategoryCardProps {
   image: string;
   title: string;
   items: number;
+  href: string;
+  active?: boolean;
 }
 
-const CategoryCard: React.FC<CategoryCardProps> = ({ image, title, items }) => {
+const CategoryCard: React.FC<CategoryCardProps> = ({ image, title, items, href, active = false }) => {
   return (
-    <div className="relative group">
-      {/* Background Image */}
+    <Link
+      href={href}
+      className={`relative group block rounded-xl overflow-hidden border ${active ? "border-[#0b7b69] shadow-lg" : "border-transparent shadow"} transition-all duration-300`}
+    >
       <Image
         src={image}
         alt={title}
-        width={300} // Adjust width based on your requirement
-        height={300} // Adjust height based on your requirement
-        className="w-full h-[300px] object-cover rounded-lg"
+        width={300}
+        height={300}
+        className="w-full h-[280px] object-cover rounded-xl"
       />
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center text-white rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <h2 className="text-xl font-bold">{title}</h2>
-        <p className="text-sm">{items} Items</p>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60 flex flex-col items-center justify-center text-white opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+        <h2 className="text-xl font-semibold">{title}</h2>
+        <p className="text-sm text-white/80">{items} Items</p>
       </div>
-    </div>
+    </Link>
   );
 };
 
