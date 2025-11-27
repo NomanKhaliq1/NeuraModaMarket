@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { Suspense, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
@@ -8,44 +8,31 @@ import ShopProductCard from "@/components/ShopProductCard";
 import CategoryCard from "@/components/CategoryCard";
 import FilterRow from "@/components/FilterRow";
 
-const ShopPage = () => {
+const CATEGORY_LABEL_MAP: Record<string, string> = {
+  men: "Men",
+  women: "Women",
+  accessories: "Accessories",
+  kids: "Kids",
+  all: "All",
+};
+const CATEGORY_KEYS = ["men", "women", "accessories", "kids"];
+
+function ShopContent() {
   const [view, setView] = useState<"grid" | "list">("grid");
   const [sortOption, setSortOption] = useState<string>("popularity");
   const [currentPage, setCurrentPage] = useState(1);
   const searchParams = useSearchParams();
   const itemsPerPage = 12;
   const activeCategory = (searchParams.get("category") || "all").toLowerCase();
-  const categoryLabelMap: Record<string, string> = {
-    men: "Men",
-    women: "Women",
-    accessories: "Accessories",
-    kids: "Kids",
-    all: "All",
-  };
-
-  const handleSortChange = (value: string) => {
-    setSortOption(value);
-    console.log("Sorting by:", value);
-  };
-
-  const handleViewChange = (selectedView: "grid" | "list") => {
-    setView(selectedView);
-    console.log("View changed to:", selectedView);
-  };
-
-  const handleFilterClick = () => {
-    console.log("Filter clicked!");
-  };
 
   const products = useMemo(() => {
-    const categories = ["men", "women", "accessories", "kids"];
     return Array.from({ length: 20 }, (_, index) => {
-      const key = categories[index % categories.length];
+      const key = CATEGORY_KEYS[index % CATEGORY_KEYS.length];
       return {
         image: `/Bestseller/p${(index % 8) + 1}.jpg`,
         title: `Product ${index + 1}`,
         categoryKey: key,
-        category: categoryLabelMap[key],
+        category: CATEGORY_LABEL_MAP[key],
         originalPrice: "$" + (16.48 + index).toFixed(2),
         discountedPrice: "$" + (6.48 + index * 0.5).toFixed(2),
         colors: ["#23A6F0", "#23856D", "#E77C40", "#252B42"],
@@ -61,14 +48,12 @@ const ShopPage = () => {
 
     if (sortOption === "price_high") {
       return [...pool].sort(
-        (a, b) =>
-          parseFloat(b.originalPrice.slice(1)) - parseFloat(a.originalPrice.slice(1))
+        (a, b) => parseFloat(b.originalPrice.slice(1)) - parseFloat(a.originalPrice.slice(1))
       );
     }
     if (sortOption === "price_low") {
       return [...pool].sort(
-        (a, b) =>
-          parseFloat(a.originalPrice.slice(1)) - parseFloat(b.originalPrice.slice(1))
+        (a, b) => parseFloat(a.originalPrice.slice(1)) - parseFloat(b.originalPrice.slice(1))
       );
     }
     return pool;
@@ -80,6 +65,10 @@ const ShopPage = () => {
     currentPage * itemsPerPage
   );
 
+  const handleSortChange = (value: string) => setSortOption(value);
+  const handleViewChange = (selectedView: "grid" | "list") => setView(selectedView);
+  const handleFilterClick = () => {};
+
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
@@ -88,7 +77,6 @@ const ShopPage = () => {
 
   return (
     <>
-      {/* Header Section */}
       <div className="py-8 px-4 md:px-8 bg-gradient-to-r from-[#f5f7fb] via-[#eef6f3] to-[#fdf4ed]">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4 mb-6 gap-4">
           <div className="space-y-2">
@@ -107,14 +95,13 @@ const ShopPage = () => {
                     href="/shop"
                     className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#0b7b69] border border-[#0b7b69]/20 font-semibold hover:bg-[#0b7b69]/10 transition"
                   >
-                    {categoryLabelMap[activeCategory] || activeCategory}
+                    {CATEGORY_LABEL_MAP[activeCategory] || activeCategory}
                     <span className="text-xs text-gray-500">(clear)</span>
                   </Link>
                 </>
               )}
             </div>
           </div>
-
           <div className="flex items-center gap-3">
             <span className="text-sm font-semibold text-gray-500">Browse by vibe</span>
           </div>
@@ -142,7 +129,6 @@ const ShopPage = () => {
         </div>
       </div>
 
-      {/* FilterRow Component */}
       <div className="py-4 px-4 md:px-8 bg-white border-b border-gray-200">
         <FilterRow
           totalResults={products.length}
@@ -152,7 +138,6 @@ const ShopPage = () => {
         />
       </div>
 
-      {/* Products Section */}
       <section className="bg-white py-10">
         <div className="container mx-auto px-4 md:px-8">
           <div
@@ -163,7 +148,6 @@ const ShopPage = () => {
             ))}
           </div>
 
-          {/* Pagination */}
           <div className="flex justify-center mt-12 space-x-2">
             <button
               onClick={() => handlePageChange(1)}
@@ -193,6 +177,12 @@ const ShopPage = () => {
       </section>
     </>
   );
-};
+}
 
-export default ShopPage;
+export default function ShopPage() {
+  return (
+    <Suspense fallback={<div className="py-16 text-center text-gray-500">Loading shop...</div>}>
+      <ShopContent />
+    </Suspense>
+  );
+}

@@ -10,20 +10,15 @@ export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = blogPosts.find((p) => p.slug === params.slug);
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return notFound();
 
   return (
     <main className="bg-gradient-to-br from-white via-[#f5f7fb] to-[#eef6f3] pb-16">
       <div className="relative h-[320px] md:h-[420px] overflow-hidden">
-        <Image
-          src={post.image}
-          alt={post.title}
-          fill
-          className="object-cover"
-          priority
-        />
+        <Image src={post.image} alt={post.title} fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/35 to-black/70" />
         <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-12 pb-10 text-white max-w-5xl">
           <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-wide font-semibold text-white/80">

@@ -1,0 +1,12 @@
+{
+  "title": "NeuraModa Market",
+  "description": "Gradient-rich Next.js storefront with curated picks, blog, and slide-out cart.",
+  "techTags": ["Next.js", "TypeScript", "TailwindCSS"],
+  "source": "github",
+  "category": "Ecommerce",
+  "repo_name": "NomanKhaliq1/NeuraModaMarket",
+  "repo_link": true,
+  "image": "/projects/NeuraModa.webp",
+  "thumbnail": "/projects/NeuraModaThumb.webp",
+  "fetch": true
+}
