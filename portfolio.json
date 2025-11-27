@@ -4,6 +4,7 @@
   "techTags": ["Next.js", "TypeScript", "TailwindCSS"],
   "source": "github",
   "category": "Ecommerce",
+  "live_url": "https://neura-moda-market-tkdm.vercel.app/",
   "repo_name": "NomanKhaliq1/NeuraModaMarket",
   "repo_link": true,
   "image": "/projects/NeuraModa.webp",
